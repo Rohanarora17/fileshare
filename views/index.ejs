@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Upload File</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <img src="img/file-transfer.gif" class="img-fluid" alt="file-transfer">
+            <div class="upload-container">
+                <div class="border-container">
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <div class="custom-file mb-3">
+                            <input type="file" name="file" class="form-control" id="file"
+                                aria-describedby="inputGroupFileAddon04" aria-label="Upload" required></input>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" name="password" class="form-control" id="floatingInputValue"
+                                placeholder="Set Password">
+                            <label for="floatingInputValue">Set Password</label>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                            <button type="submit" class="btn btn-primary btn-block"><i
+                                    class="fa-solid fa-cloud-arrow-up"></i>&nbsp;
+                                Upload</button>
+                        </div>
+                    </form>
+
+                    <% if(locals.fileLink !=null){ %>
+                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <div>
+                                <i class="fa-solid fa-circle-check"></i>&nbsp;
+                                Download Link: <a href="<%= locals.fileLink %>">
+                                    <%= locals.fileLink %>
+                                </a>
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
