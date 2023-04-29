@@ -7,7 +7,7 @@ const port = 3000;
 const app = express();
 
 mongoose
-  .connect("mongodb://localhost:27017/fileshare", {
+  .connect("mongodb+srv://rohan:okok@cluster0.kvh2zkm.mongodb.net/test", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
